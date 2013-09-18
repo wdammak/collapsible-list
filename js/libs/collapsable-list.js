@@ -68,7 +68,7 @@
                 hideListElements(allElements);
             }
 
-            function uncollapseAllHeaders() {
+            function expandAllHeaders() {
                 showListElements(allElements);
             }
 
@@ -77,13 +77,13 @@
                 header.addClass('collapsed');
             }
 
-            function uncollapseHeader(header) {
+            function expandHeader(header) {
                 showListElements(findHeadersList(header).find('> li'));
                 header.removeClass('collapsed');
             }
 
             function toggleCollapse(header) {
-                isHeaderCollapsed(header) ? uncollapseHeader(header) : collapseHeader(header);
+                isHeaderCollapsed(header) ? expandHeader(header) : collapseHeader(header);
             }
 
             function isHeaderCollapsed(header) {
@@ -140,7 +140,7 @@
             function setApi() {
                 mainUl.data('collapsableList', {
                     collapseAll: collapseAllHeaders,
-                    uncollapseAll: uncollapseAllHeaders,
+                    expandAll: expandAllHeaders,
                 });
             }
 
