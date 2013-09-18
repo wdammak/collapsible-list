@@ -24,7 +24,7 @@
  *
  *
  *
- * By Sebastien Roch: http://github.com/sebastien-roch
+ * Author: Sebastien Roch - http://github.com/sebastien-roch
  */
 (function ($) {
     $.fn.collapsableList = function (headerSelector, opts) {
