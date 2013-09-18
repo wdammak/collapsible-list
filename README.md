@@ -3,6 +3,11 @@ collapsable-list
 
 a jQuery plugin to collapse and search nested lists (2 levels)
 
+Demo
+-----
+
+[On this page](http://sebastien-roch.github.io/collapsable-list/demo.html)
+
 Usage
 ------
 
