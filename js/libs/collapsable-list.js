@@ -29,7 +29,9 @@
 (function ($) {
     $.fn.collapsableList = function (headerSelector, opts) {
         var ESCAPE_KEY = 27;
-        var defaults = {};
+        var defaults = {
+            search: false
+        };
         var options = $.extend(defaults, $.fn.collapsableList.defaults, opts);
 
         // case insensitive "contains" selector
@@ -95,14 +97,25 @@
             }
 
             function setSearchField() {
-                searchField = $('<input class="collapsable-search"/>');
+                if (options.search === true) {
+                    searchField = $('<input class="collapsable-search"/>');
+                } else if (options.search instanceof jQuery) {
+                    searchField = $(options.search);
+                } else {
+                    throw "invalid search option passed: must be true, false or a jQuery object";
+                }
+
                 searchField.on('keyup', function(e) {
                     if (e.which === ESCAPE_KEY) {
                         return quitSearch();
                     }
                     doSearch(searchField.val());
                 });
-                mainUl.prepend(searchField);
+
+                // append the field if it's not already in the DOM
+                if (searchField.parents('body').length === 0) {
+                    mainUl.prepend(searchField);
+                }
 
                 return searchField;
             }
@@ -149,8 +162,10 @@
                 headers = getHeaders();
 
                 setHeadersClickHandler();
-                setSearchField();
                 setApi();
+                if (options.search !== false) {
+                    setSearchField();
+                }
             }
 
             init();
