@@ -59,33 +59,37 @@
             }
 
             function hideListElements(liElems) {
-                liElems.slideUp();
+                return liElems.slideUp().promise();
             }
 
             function showListElements(liElems) {
-                liElems.slideDown();
+                return liElems.slideDown().promise();
             }
 
             function collapseAllHeaders() {
-                hideListElements(allElements);
+                return hideListElements(allElements);
             }
 
             function expandAllHeaders() {
-                showListElements(allElements);
+                return showListElements(allElements);
             }
 
             function collapseHeader(header) {
-                hideListElements(findHeadersList(header).find('> li'));
-                header.addClass('collapsed');
+                return hideListElements(findHeadersList(header).find('> li'))
+                    .done(function() {
+                        header.addClass('collapsed');
+                    });
             }
 
             function expandHeader(header) {
-                showListElements(findHeadersList(header).find('> li'));
-                header.removeClass('collapsed');
+                return showListElements(findHeadersList(header).find('> li'))
+                    .done(function() {
+                        header.removeClass('collapsed');
+                    });
             }
 
             function toggleCollapse(header) {
-                isHeaderCollapsed(header) ? expandHeader(header) : collapseHeader(header);
+                return isHeaderCollapsed(header) ? expandHeader(header) : collapseHeader(header);
             }
 
             function isHeaderCollapsed(header) {
@@ -132,22 +136,42 @@
 
             function doSearch(input) {
                 if (isEmptyInput(input)) {
-                    return restoreMainListState();
+                    restoreMainListState().done(showHeaders);
+                    return;
                 }
-                hideListElements(allElements.filter(':not(:cicontains(' + input + '))'));
-                showListElements(allElements.filter(':cicontains(' + input + ')'));
+
+                var p1 = hideListElements(allElements.filter(':not(:cicontains(' + input + '))'));
+                var p2 = showListElements(allElements.filter(':cicontains(' + input + ')'));
+                $.when(p1, p2).done(hideHeadersWithEmptyList);
+            }
+
+            function hideHeadersWithEmptyList() {
+                headers.each(function(){
+                    if ($(this).next('ul').find('li:visible').length === 0) {
+                        $(this).hide();
+                    } else {
+                        $(this).show();
+                    }
+                });
+            }
+
+            function showHeaders() {
+                headers.show();
             }
 
             function restoreMainListState() {
+                var promises = [];
                 headers.each(function() {
                     var header = $(this);
                     if (isHeaderCollapsed(header)) {
-                        hideListElements(findHeadersList(header).find('> li'))
+                        promises.push(hideListElements(findHeadersList(header).find('> li')));
                     } else {
                         // hide the list elements that matched the last search
-                        showListElements(findHeadersList(header).find('> li'));
+                        promises.push(showListElements(findHeadersList(header).find('> li')));
                     }
                 });
+
+                return $.when.apply(this, promises);
             }
 
             function setApi() {
