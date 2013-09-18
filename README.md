@@ -30,6 +30,8 @@ Markup example:
 
 Javascript code:
 
+The first argument is a selector to get the headers of each sub-list. The second are the options.
+
 ```javascript
 $('#my-list').collapsableList('.header');
 ```
@@ -42,7 +44,7 @@ Search
 ---------
 The search is case insensitive and does not have to start from the beginning of the word (e.g. 'merica' will match 'America').
 
-If the filtered nested lists result in having no items after a search, the header is hidden.
+If the filtered nested sub-lists result in having no items after a search, the header is hidden.
 
 `ESC` will clear the search field and remove the focus (blur). If some sub-lists were collapsed, the state is stored before the search and restored when the search field is empty or if you press `ESC`.
 
