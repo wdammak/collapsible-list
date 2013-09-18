@@ -38,6 +38,13 @@ $('#my-list').collapsableList('.header');
 $('#my-list').collapsableList('.header', {search: false});
 ```
 
+Search
+---------
+The search is case insensitive and does not have to start from the beginning of the word (e.g. 'merica' will match 'America').
+
+If the filtered nested lists result in having no items after a search, the header is hidden.
+
+`ESC` will clear the search field and remove the focus (blur). If some sub-lists were collapsed, the state is stored before the search and restored when the search field is empty or if you press `ESC`.
 
 Options
 --------
@@ -45,3 +52,4 @@ Options
 *   `search`: one of `true`, `false` or a `jQuery` instance
 
     When `true`, creates and add a search field at the top of the list. When `false`, no search field is added. When it's a `jQuery`instance, this field will be used for the search and key handlers will be set on it.
+
