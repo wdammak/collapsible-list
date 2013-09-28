@@ -1,6 +1,6 @@
 {
-    "name": "collapsable-list",
-    "title": "Two levels collapsable lists",
+    "name": "collapsible-list",
+    "title": "Two levels collapsible lists",
     "description": "Collapse/expand and search nested lists (2 levels)",
     "keywords": [
         "lists",
@@ -8,7 +8,7 @@
         "expand",
         "search"
     ],
-    "version": "1.0.2",
+    "version": "1.0.3",
     "author": {
         "name": "Sébastien Roch",
         "url": "https://github.com/sebastien-roch"
@@ -22,13 +22,13 @@
     "licenses": [
         {
             "type": "MIT",
-            "url": "https://github.com/sebastien-roch/collapsable-list/blob/1.0.0/LICENSE"
+            "url": "https://github.com/sebastien-roch/collapsible-list/blob/1.0.0/LICENSE"
         }
     ],
-    "bugs": "https://github.com/sebastien-roch/collapsable-list/issues",
-    "homepage": "https://github.com/sebastien-roch/collapsable-list",
-    "docs": "https://github.com/sebastien-roch/collapsable-list",
-    "demo": "http://sebastien-roch.github.io/collapsable-list/demo.html",
+    "bugs": "https://github.com/sebastien-roch/collapsible-list/issues",
+    "homepage": "https://github.com/sebastien-roch/collapsible-list",
+    "docs": "https://github.com/sebastien-roch/collapsible-list",
+    "demo": "http://sebastien-roch.github.io/collapsible-list/demo.html",
     "dependencies": {
         "jquery": ">=1.5"
     }

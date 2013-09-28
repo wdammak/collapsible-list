@@ -20,19 +20,19 @@
  * Usage with the previous example:
  * ================================
  *
- * $('#mylist').collapsableList('li.header');
+ * $('#mylist').collapsibleList('li.header');
  *
  *
  *
  * Author: Sebastien Roch - http://github.com/sebastien-roch
  */
 (function ($) {
-    $.fn.collapsableList = function (headerSelector, opts) {
+    $.fn.collapsibleList = function (headerSelector, opts) {
         var ESCAPE_KEY = 27;
         var defaults = {
             search: false
         };
-        var options = $.extend(defaults, $.fn.collapsableList.defaults, opts);
+        var options = $.extend(defaults, $.fn.collapsibleList.defaults, opts);
 
         // case insensitive "contains" selector
         jQuery.expr[':'].cicontains = function(a,i,m) {
@@ -102,7 +102,7 @@
 
             function setSearchField() {
                 if (options.search === true) {
-                    searchField = $('<input class="collapsable-search"/>');
+                    searchField = $('<input class="collapsible-search"/>');
                 } else if (options.search instanceof jQuery) {
                     searchField = $(options.search);
                 } else {
@@ -175,7 +175,7 @@
             }
 
             function setApi() {
-                mainUl.data('collapsableList', {
+                mainUl.data('collapsibleList', {
                     collapseAll: collapseAllHeaders,
                     expandAll: expandAllHeaders,
                 });

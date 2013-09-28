@@ -1,4 +1,4 @@
-collapsable-list
+collapsible-list
 ================
 
 a jQuery plugin to collapse and search nested lists (2 levels)
@@ -6,7 +6,7 @@ a jQuery plugin to collapse and search nested lists (2 levels)
 Demo
 -----
 
-[On this page](http://sebastien-roch.github.io/collapsable-list/demo.html)
+[On this page](http://sebastien-roch.github.io/collapsible-list/demo.html)
 
 Usage
 ------
@@ -33,11 +33,11 @@ Javascript code:
 The first argument is a selector to get the headers of each sub-list. The second are the options.
 
 ```javascript
-$('#my-list').collapsableList('.header');
+$('#my-list').collapsibleList('.header');
 ```
 
 ```javascript
-$('#my-list').collapsableList('.header', {search: false});
+$('#my-list').collapsibleList('.header', {search: false});
 ```
 
 Search
