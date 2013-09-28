@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Collapsable-list by sebastien-roch</title>
+    <title>Collapsible-list by sebastien-roch</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -15,28 +15,28 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>Collapsable-list</h1>
-        <p>a jQuery plugin to collapse and search nested lists (2 levels)</p>
+        <h1>Collapsible-list</h1>
+        <p>a jQuery plugin to collapse/expand and search nested lists (2 levels)</p>
 
-        <p class="view"><a href="https://github.com/sebastien-roch/collapsable-list">View the Project on GitHub <small>sebastien-roch/collapsable-list</small></a></p>
+        <p class="view"><a href="https://github.com/sebastien-roch/collapsible-list">View the Project on GitHub <small>sebastien-roch/collapsible-list</small></a></p>
 
 
         <ul>
-          <li><a href="https://github.com/sebastien-roch/collapsable-list/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/sebastien-roch/collapsable-list/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/sebastien-roch/collapsable-list">View On <strong>GitHub</strong></a></li>
+          <li><a href="https://github.com/sebastien-roch/collapsible-list/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/sebastien-roch/collapsible-list/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/sebastien-roch/collapsible-list">View On <strong>GitHub</strong></a></li>
         </ul>
       </header>
       <section>
         <h1>
-<a name="collapsable-list" class="anchor" href="#collapsable-list"><span class="octicon octicon-link"></span></a>collapsable-list</h1>
+<a name="collapsible-list" class="anchor" href="#collapsible-list"><span class="octicon octicon-link"></span></a>collapsible-list</h1>
 
 <p>a jQuery plugin to collapse and search nested lists (2 levels)</p>
 
 <h2>
 <a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>Demo</h2>
 
-<p><a href="http://sebastien-roch.github.io/collapsable-list/demo.html">On this page</a></p>
+<p><a href="http://sebastien-roch.github.io/collapsible-list/demo.html">On this page</a></p>
 
 <h2>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
@@ -59,10 +59,12 @@
 
 <p>Javascript code:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#my-list'</span><span class="p">).</span><span class="nx">collapsableList</span><span class="p">(</span><span class="s1">'.header'</span><span class="p">);</span>
+<p>The first argument is a selector to get the headers of each sub-list. The second are the options.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#my-list'</span><span class="p">).</span><span class="nx">collapsibleList</span><span class="p">(</span><span class="s1">'.header'</span><span class="p">);</span>
 </pre></div>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#my-list'</span><span class="p">).</span><span class="nx">collapsableList</span><span class="p">(</span><span class="s1">'.header'</span><span class="p">,</span> <span class="p">{</span><span class="nx">search</span><span class="o">:</span> <span class="kc">false</span><span class="p">});</span>
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#my-list'</span><span class="p">).</span><span class="nx">collapsibleList</span><span class="p">(</span><span class="s1">'.header'</span><span class="p">,</span> <span class="p">{</span><span class="nx">search</span><span class="o">:</span> <span class="kc">false</span><span class="p">});</span>
 </pre></div>
 
 <h2>
@@ -70,7 +72,7 @@
 
 <p>The search is case insensitive and does not have to start from the beginning of the word (e.g. 'merica' will match 'America').</p>
 
-<p>If the filtered nested lists result in having no items after a search, the header is hidden.</p>
+<p>If the filtered nested sub-lists result in having no items after a search, the header is hidden.</p>
 
 <p><code>ESC</code> will clear the search field and remove the focus (blur). If some sub-lists were collapsed, the state is stored before the search and restored when the search field is empty or if you press <code>ESC</code>.</p>
 
