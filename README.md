@@ -55,3 +55,6 @@ Options
 
     When `true`, creates and add a search field at the top of the list. When `false`, no search field is added. When it's a `jQuery`instance, this field will be used for the search and key handlers will be set on it.
 
+*   `animate`: `true` or `false`
+
+    Enable or disable animation.

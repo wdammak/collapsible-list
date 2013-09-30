@@ -30,7 +30,8 @@
     $.fn.collapsibleList = function (headerSelector, opts) {
         var ESCAPE_KEY = 27;
         var defaults = {
-            search: false
+            search: false,
+            animate: true
         };
         var options = $.extend(defaults, $.fn.collapsibleList.defaults, opts);
 
@@ -59,11 +60,17 @@
             }
 
             function hideListElements(liElems) {
-                return liElems.slideUp().promise();
+                if (options.animate) {
+                    return liElems.slideUp().promise();
+                }
+                return liElems.hide().promise();
             }
 
             function showListElements(liElems) {
-                return liElems.slideDown().promise();
+                if (options.animate) {
+                    return liElems.slideDown().promise();
+                }
+                return liElems.show().promise();
             }
 
             function collapseAllHeaders() {
