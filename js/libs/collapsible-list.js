@@ -197,6 +197,11 @@
                 if (options.search !== false) {
                     setSearchField();
                 }
+                if (options.initCollapsed === true) {
+					headers.each(function() {
+						collapseHeader($(this));
+					});
+				}
             }
 
             init();
